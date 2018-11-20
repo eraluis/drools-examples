@@ -1,0 +1,47 @@
+package droolscours
+
+//list any import classes here.
+import droolscourse.model.Account;
+import droolscourse.model.CashFlow;
+import droolscourse.model.AccountingPeriod;
+
+//declare any global variables here
+global droolscourse.util.OutputDisplay showResults;
+
+
+rule "First Rule"
+
+    when
+        //conditions
+        Account(  )
+    then
+        //actions
+        System.out.println(" * R1: The account exists");
+		
+end
+
+rule "Second Rule"
+    //include attributes such as "salience" here...
+    when
+        //conditions
+        CashFlow(  )
+    then
+        //actions
+        showResults.showText(" * R2: The CashFlow exists");
+        AccountingPeriod newPeriod = new AccountingPeriod();
+        insert(newPeriod);
+
+end
+
+
+rule "Third Rule"
+    //include attributes such as "salience" here...
+    when
+        //conditions
+        AccountingPeriod(  )
+    then
+        //actions
+        //System.out.println(" * R3: The AccountPeriod exists");
+        showResults.showText(" * R3: The AccountPeriod exists");
+
+end
